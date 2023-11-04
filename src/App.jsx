@@ -53,6 +53,8 @@ const App = () => {
         setNewName('')
         setNewNumber('')
         showNotification(`${newName} added successfully!`, 'success');
+      }).catch(error => {
+        showNotification(error.response.data.error, 'error')
       })
     } else if (foundPerson.number != newNumber && confirm(`${foundPerson.name} is already added to the phoneook, replace the old number with a new one?`)) {
       const updatePerson = {
